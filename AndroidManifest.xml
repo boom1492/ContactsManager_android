@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="yonsei.jhlee.contentssync"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+    
+	<uses-feature android:name="android.hardware.camera"/>
+	<uses-permission android:name="android.permission.CAMERA"/>
+	<uses-permission android:name="android.permission.FLASHLIGHT"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+	<supports-screens
+		android:largeScreens="true"
+		android:normalScreens="true"
+		android:smallScreens="true"
+		android:anyDensity="true"/>
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:label="@string/app_name"
+            android:name=".ContentsSyncActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" /> 
+                <action android:name="junction.intent.action.JOIN" />
+				<category android:name="junction.intent.category.BOOTSTRAP" />                               
+       			<category android:name="android.intent.category.DEFAULT"></category>                       
+				<data android:scheme="http" android:host="192.168.43.13"/>
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".ConnectionActivity">
+            
+        </activity>
+        
+        <activity
+  			android:name="com.google.zxing.client.android.CaptureActivity"
+  			android:screenOrientation="landscape"
+  			android:configChanges="orientation|keyboardHidden"
+  			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+  			android:windowSoftInputMode="stateAlwaysHidden">
+    		<intent-filter>
+      			<action android:name="com.google.zxing.client.android.SCAN"/>
+      			<category android:name="android.intent.category.DEFAULT"/>
+    		</intent-filter>
+		</activity>
+        <receiver android:name=".SMSReceiver">
+        </receiver>
+    </application>
+
+</manifest>
