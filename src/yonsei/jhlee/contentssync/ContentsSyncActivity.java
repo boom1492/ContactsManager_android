@@ -42,7 +42,7 @@ import edu.stanford.junction.api.messaging.MessageHeader;
 import edu.stanford.junction.provider.xmpp.XMPPSwitchboardConfig;
 
 public class ContentsSyncActivity extends Activity {
-    private static final String mHost = "192.168.43.13";
+    private static final String mHost = "mobilesw.yonsei.ac.kr";
 	private static final SwitchboardConfig mSbConfig = new XMPPSwitchboardConfig(mHost);
 	private static final JunctionMaker mMaker = JunctionMaker.getInstance(mSbConfig);
 	

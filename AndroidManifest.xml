@@ -32,7 +32,7 @@
                 <action android:name="junction.intent.action.JOIN" />
 				<category android:name="junction.intent.category.BOOTSTRAP" />                               
        			<category android:name="android.intent.category.DEFAULT"></category>                       
-				<data android:scheme="http" android:host="192.168.43.13"/>
+				<data android:scheme="http" android:host="mobilesw.yonsei.ac.kr"/>
             </intent-filter>
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
